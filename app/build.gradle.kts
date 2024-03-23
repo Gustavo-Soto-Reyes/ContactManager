@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.contact_manager"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.contact_manager"
@@ -28,6 +28,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
 }
 
