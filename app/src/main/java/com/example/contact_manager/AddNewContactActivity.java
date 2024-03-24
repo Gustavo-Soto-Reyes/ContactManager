@@ -2,6 +2,7 @@ package com.example.contact_manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
@@ -22,7 +23,10 @@ public class AddNewContactActivity extends AppCompatActivity {
         contact = new Contact();
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_new_contact);
         binding.setContact(contact);
-        handler = new AddNewContactClickHandler(contact, this);
+
+        ContactsViewModel vm = new ViewModelProvider(this).get(ContactsViewModel.class);
+
+        handler = new AddNewContactClickHandler(contact, this, vm);
         binding.setClickHandler(handler);
 
     }

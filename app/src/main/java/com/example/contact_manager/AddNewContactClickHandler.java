@@ -9,9 +9,12 @@ public class AddNewContactClickHandler {
     Contact contact;
     Context context;
 
-    public AddNewContactClickHandler(Contact contact, Context context) {
+    ContactsViewModel vm;
+
+    public AddNewContactClickHandler(Contact contact, Context context, ContactsViewModel vm) {
         this.contact = contact;
         this.context = context;
+        this.vm = vm;
     }
 
     public void onSubmitButton(View view){
@@ -19,8 +22,8 @@ public class AddNewContactClickHandler {
             Toast.makeText(context, "Empty Fields not allowed", Toast.LENGTH_SHORT).show();
         } else {
             Intent i = new Intent(context, MainActivity.class);
-            i.putExtra("Name", contact.getName());
-            i.putExtra("Email", contact.getEmail());
+            vm.addContact(contact);
+
             context.startActivity(i);
         }
     }
