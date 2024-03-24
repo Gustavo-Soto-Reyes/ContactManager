@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         vm.getAllContacts().observe(this, new Observer<List<Contact>>() {
             @Override
             public void onChanged(List<Contact> contacts) {
+                contactsList.clear();
                 for (Contact c: contacts){
                     Log.v("TAG GUS", c.getName());
                     contactsList.add(c);
